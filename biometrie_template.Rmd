@@ -1,0 +1,167 @@
+---
+title: "Biometrie onderzoek handen"
+authors: "Nicole Bovenga, Vincent de Jong, Isa Bos"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    css: style.css
+    toc: yes
+    toc_depth: 3
+    toc_float:
+      collapsed: yes
+      smooth_scroll: yes
+---
+
+```{r setup, include=FALSE}
+# DON'T TOUCH THIS
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+
+```
+
+
+## Inleiding
+
+GEEF EEN HEEL KORTE INLEINDING VAN JE ONDERZOEK
+
+:::info
+Het staat je vrij een ander simpel te meten biometrisch kenmerk te onderzoeken. Voorwaarde is wel dat je twee aspecten meet (bv lichaamslengte en hoofdomtrek) en hun relatie onderzoekt, en ook dat je verschillende groepen onderzoekt (man/vrouw, jong/oud etc.). Ten slotte moeten verschillende studenten het meetwerk afwisselen en ook dat moet vastgelegd worden.
+:::
+
+
+
+:::attention
+GEEF HIER JE ONDERZOEKSVRAAG
+:::
+
+
+:::attention
+GEEF HIER JE HYPOTHESE
+:::
+
+
+:::attention
+GEEF HIER JE NULHYPOTHESE
+:::
+
+
+### Ontwerp van het experiment
+
+> GEEF EEN KORT OVERZICHT VAN JE EXPERIMENT
+
+### Ontwerp het protocol
+
+VUL HIER ONDER HET PROTOCOL AAN OF PAS DEZE AAN NAAR JOUW OPZET.
+
+:::protocol
+#### Protocol voor meting handlengte en handbreedte
+
+##### Benodigdheden
+
+1. Maatlat, schuifmaat of meetlint.  
+2. Spreadsheet om resultaten vast te leggen, met toegang hiertoe op locaties zonder internet-toegang.  
+3. Je laborant-ID: een unieke _identifier_ die jou als onderzoeker identificeert. Neem hiervoor de laatste 4 cijfers van je studentnummer.
+
+##### Data verzamelen
+
+Zoek, samen met een ander groepje van je klas, in of rond het schoolgebouw medestudenten. Vraag beleefd of ze willen participeren in een klein wetenschappelijk onderzoekje voor school waarbij de maten van de hand opgenomen zullen worden.  
+Is het antwoord nee, dan groet je vriendelijk en zoek je verder.  
+Is het antwoord ja, dan vraag je of de proefpersoon de hand horizontaal en gestrekt wil houden met de palm naar beneden. Vervolgens meet je zowel de lengte als de breedte van de hand op, in millimeters. Deze leg je vast in de spreadsheet, samen met je laborant-ID en een identifier (géén naam!) van de proefpersoon. Ten slotte vraag je aan de proefpersoon zijn/haar/hun sexe en legt deze vast. Wil de proefpersoon deze niet geven, of is die nonbinair, dan leg je dit vast als "anders/onbekend". Het "parallel groepje" (dat niet jouw bevindingen mag horen) doet dezelfde meting en slaat deze met dezelfde participant identifier op.  
+Bedank de proefpersoon voor deelname.  
+Wissel de metingen af tussen de verschillende studenten in jouw groepje.
+
+Ga door totdat van voldoende proefpersonen de gegevens zijn verzameld.
+:::
+
+
+## Uitvoering
+
+:::attention
+Je moet de onderzoeksresultaten in deze vorm opslaan:  
+
+<pre>
+laborant_ID,subject_ID,handlengte,handbreedte,sexe
+3241,G1_03,113,104,m
+<meer rijen met data>
+</pre>
+:::
+
+
+## Analyse
+
+### Lees je eigen data in
+
+Om data vanuit een tekstbestand in te lezen kan je dit codeblok gebruiken, aannemend dat je data er exact zo uitzien als in bovenstaande voorbeeld:
+
+```{r demo-data-inlees, eval=FALSE}
+data_file <- "pad/naar/jouw/databestand.csv"
+
+#data format: laborant_ID,subject_ID,handlengte,handbreedte,sexe
+biometric_data <- read.table(file = data_file,
+                        header = TRUE,
+                        sep = ",")
+
+```
+
+Let op: als je missende data hebt moet je die specificeren door dit argument toe te voegen: `na.strings = "<jouw NA symbool>"`
+
+
+### Beschrijvende statistiek
+
+LAAT ENKELE BESCHRIJVENDE STATISTISCHE WAARDES ZIEN.
+GEEF EEN OF MEERDERE BOXPLOTS EN HISTOGRAMMEN
+BESPREEK DEZE DATA EN FIGUREN KORT.
+KAN JE IETS ZEGGEN OVER DE DATAVERDELING?
+
+### Welke verdeling?
+
+Hoe kleiner de steekproefgrootte (_sample size_) hoe lastiger het is de onderliggende verdeling vast te stellen. Speel maar eens met dit blokje code, en verander de steekproefgrootte (`n=`) in de `rnorm()` functie en de `breaks=` in de `hist()` functie. 
+Neem voor _n_ bijvoorbeeld achtereenvolgens 10, 100, 1000, 10000, 10000 en voor _breaks_ 5, 10, 50. Wanneer zie je een echte normaalverdeling verschijnen? 
+
+```{r sampling-demo, fig.asp=.6, out.width='60%', fig.align='center'}
+hist_data <- data.frame(x = rnorm(n = 100))
+ggplot(data = hist_data,
+       mapping = aes(x = x)) +
+    geom_histogram(bins = 10, fill = "gold", colour = "black") +
+    theme_minimal()
+```
+
+:::attention
+**Dit _experiment_ met de argumenten van `rnorm()` en `hist()` moet je opnemen in je eigen RMarkdown.**  
+Beantwoord deze vragen:
+
+1. Wat gebeurt er met de vorm van de verdeling als `n` groter wordt?
+2. Wat gebeurt er met de spreiding van de data (x-as) als `n` groter wordt, en kan je dat verklaren?
+3. Waarom is bij zelfde instellingen voor `n` en `breaks` de uitkomst toch verschillend?
+4. Welke minimale `n` geeft het meeste kans om een echte normaalverdeling te zien?
+5. Wat voor bijzonders is er aan de hand met het `breaks` argument? Geeft de documentatie daar een verklaring voor?
+:::
+
+### Bronnen van variatie
+
+ONDERZOEK BRONNEN VAN VARIATIE
+BESPREEK DIT KORT
+
+### De hypothese aannemen?
+
+VOER RELEVANTE STATISTISCHE TESTS UIT
+
+
+## Reflectie op het experiment
+
+:::info
+Bespreek in je groep de volgende vragen en voeg de antwoorden toe aan je uitgewerkte onderzoeksdocument.  
+
+1. Zijn de metingen tussen de verschillende meters ook (significant) verschillend? Zo ja, waardoor zou je de verschillen kunnen verklaren?
+
+2. Onderzoek de verschillen tussen mannen en vrouwen met betrekking tot hand lengte, handbreedte en de ratio.
+
+3. Zou je het protocol aanpassen na deze ervaring, of was hij voldoende duidelijk en reproduceerbaar?
+:::
+
+
+:::attention
+#### Wat je moet inleveren
+Voor de verwerking en analyse van je eigen data maak je gebruik van het aangeleverde template RMarkdown document. Daarin doorloop je dezelfde onderzoek stappen als hieronder, maar dan met je eigen data. Aan het einde van de dag gaat dat document, in originele en "geknitte" vorm, samen met je databestand, in een git repo die is opgezet volgens voorschift in de cursushandleiding. De link hiernaar toe gaat in je portfolio op eJournal. Let op dat je _alle_ stappen hebt doorlopen voordat je inlevert. Gebruik ook de RStudio spellingscontrole!  
+Vergeet niet jullie namen en studentnummers bovenaan de markdown te zetten!
+:::
