@@ -69,6 +69,9 @@ We gingen hiermee door totdat we gegevens hadden van minstens 40 mensen. Daarna 
 
 ## Analyse
 
+De boxplot laat zien hoe de verhouding tussen handlengte en handbreedte verschilt tussen mannen en vrouwen. De gemiddelde ratio lijkt bij beide groepen ongeveer gelijk. Vrouwen hebben iets minder spreiding in de data dan mannen, maar het verschil is klein. Er zijn bij beide groepen een paar uitschieters te zien.
+We hebben een t-toets uitgevoerd om te controleren of het verschil in gemiddelde ratio tussen mannen en vrouwen statistisch significant is. De uitkomst van de toets gaf een p-waarde boven de 0,05. Dat betekent dat het gevonden verschil waarschijnlijk op toeval berust. We kunnen dus niet zeggen dat er een echt verschil is in de lengte-breedteverhouding van handen tussen mannen en vrouwen op basis van deze steekproef.
+
 ### Lees je eigen data in
 
 Hier wordt de data ingelezen:
