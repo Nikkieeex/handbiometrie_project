@@ -1,6 +1,6 @@
 ---
 title: "Biometrie onderzoek handen"
-authors: "Nicole Bovenga, Vincent de Jong, Isa Bos"
+authors: "Nicole Bovenga (425787), Vincent de Jong, Isa Bos"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -22,7 +22,7 @@ library(ggplot2)
 
 ## Inleiding
 
-Wij hebben voor dit onderzoek de lengte en breedete van de handen van verschillende mensen gemeeten, en daarna gekeken of er verschil is tussen mannen en vrouwen. Met de gegevens hebben we grafiekjes gemaakt om het verschil duidelijk te zien.
+Wij hebben voor dit onderzoek de lengte en breedte van de handen van verschillende mensen gemeten, en daarna gekeken of er verschil is tussen mannen en vrouwen. Met de gegevens hebben we grafiekjes gemaakt om het verschil duidelijk te zien.
 
 :::info
 Het staat je vrij een ander simpel te meten biometrisch kenmerk te onderzoeken. Voorwaarde is wel dat je twee aspecten meet (bv lichaamslengte en hoofdomtrek) en hun relatie onderzoekt, en ook dat je verschillende groepen onderzoekt (man/vrouw, jong/oud etc.). Ten slotte moeten verschillende studenten het meetwerk afwisselen en ook dat moet vastgelegd worden.
@@ -52,6 +52,12 @@ Voor ons experiment hebben we van 40 willekeurig geselecteerde mensen hun handle
 :::protocol
 #### Protocol voor meting handlengte en handbreedte
 
+1. Vraag de proefpersoon om de linkerhand plat, gestrekt en met de palm naar beneden op tafel te leggen
+2.Meet de lengte van de hand, vanaf het streepje van de onderhand tot de top van de middelfinger
+3. Meet de breedte van de hand, vanaf waar de hand het meest breed is
+4. Noteer de waarden in centimeters
+
+
 ##### Benodigdheden:
 
 1. Maatlat of Meetlint 
@@ -73,6 +79,8 @@ We schreven de gegevens op in een tabel, zonder namen, en noteerden ook of de pe
 We gingen hiermee door totdat we gegevens hadden van minstens 40 mensen. Daarna hebben we een .csv bestand gemaakt en alle verzamelde data er in gezet.
 
 ## Analyse
+De boxplot laat zien hoe de verhouding tussen handlengte en handbreedte verschilt tussen mannen en vrouwen. De gemiddelde ratio lijkt bij beide groepen ongeveer gelijk. Vrouwen hebben iets minder spreiding in de data dan mannen, maar het verschil is klein. Er zijn bij beide groepen een paar uitschieters te zien.
+We hebben een t-toets uitgevoerd om te controleren of het verschil in gemiddelde ratio tussen mannen en vrouwen statistisch significant is. De uitkomst van de toets gaf een p-waarde boven de 0,05. Dat betekent dat het gevonden verschil waarschijnlijk op toeval berust. We kunnen dus niet zeggen dat er een echt verschil is in de lengte-breedteverhouding van handen tussen mannen en vrouwen op basis van deze steekproef.
 
 ### Lees je eigen data in
 
@@ -97,6 +105,7 @@ LAAT ENKELE BESCHRIJVENDE STATISTISCHE WAARDES ZIEN.
 GEEF EEN OF MEERDERE BOXPLOTS EN HISTOGRAMMEN
 BESPREEK DEZE DATA EN FIGUREN KORT.
 KAN JE IETS ZEGGEN OVER DE DATAVERDELING?
+
 
 ### Welke verdeling?
 
@@ -139,9 +148,17 @@ Bespreek in je groep de volgende vragen en voeg de antwoorden toe aan je uitgewe
 
 1. Zijn de metingen tussen de verschillende meters ook (significant) verschillend? Zo ja, waardoor zou je de verschillen kunnen verklaren?
 
+Ja ze zijn verschillend. Dit komt doordat het andere groepje tot op millimeter meet en wij iets minder exact.
+
 2. Onderzoek de verschillen tussen mannen en vrouwen met betrekking tot hand lengte, handbreedte en de ratio.
 
+Op basis van onze metingen blijkt dat mannen gemiddeld een iets lagere lengte-breedteverhouding hebben dan vrouwen. De gemiddelde ratio voor mannen was ongeveer 1,79 voor vrouwen 1,84. Dit verschil was niet statistisch significant volgens de t-toets (p = 0,2748). De spreiding bij mannen was wel duidelijk groter dan bij vrouwen, wat zichtbaar was in de standaardafwijkingen (mannen ≈ 0,20, vrouwen ≈ 0,08).
+
+Hoewel we in deze analyse vooral naar de verhouding gekeken hebben, zagen we bij het doornemen van de ruwe data ook dat mannen gemiddeld iets langere handen hadden, terwijl de handbreedte bij beide groepen redelijk vergelijkbaar leek.
+
 3. Zou je het protocol aanpassen na deze ervaring, of was hij voldoende duidelijk en reproduceerbaar?
+
+Hij was best duidelijk, maar misschien een verandering toevoegen dat er heel exact op milimeters gemeten moet worden.
 :::
 
 
