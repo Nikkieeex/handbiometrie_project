@@ -22,7 +22,7 @@ library(ggplot2)
 
 ## Inleiding
 
-GEEF EEN HEEL KORTE INLEINDING VAN JE ONDERZOEK
+Wij hebben voor dit onderzoek de lengte en breedete van de handen van verschillende mensen gemeeten, en daarna gekeken of er verschil is tussen mannen en vrouwen. Met de gegevens hebben we grafiekjes gemaakt om het verschil duidelijk te zien.
 
 :::info
 Het staat je vrij een ander simpel te meten biometrisch kenmerk te onderzoeken. Voorwaarde is wel dat je twee aspecten meet (bv lichaamslengte en hoofdomtrek) en hun relatie onderzoekt, en ook dat je verschillende groepen onderzoekt (man/vrouw, jong/oud etc.). Ten slotte moeten verschillende studenten het meetwerk afwisselen en ook dat moet vastgelegd worden.
@@ -31,17 +31,17 @@ Het staat je vrij een ander simpel te meten biometrisch kenmerk te onderzoeken. 
 
 
 :::attention
-GEEF HIER JE ONDERZOEKSVRAAG
+Is er een verschil in de handlengte en -breedte van mannen en vrouwen?
 :::
 
 
 :::attention
-GEEF HIER JE HYPOTHESE
+Mannen en vrouwen hebben gemiddeld een verschillende handlengte en handbreedte.
 :::
 
 
 :::attention
-GEEF HIER JE NULHYPOTHESE
+Mannen en vrouwen hebben gemiddeld dezelfde handlengte en handbreedte.
 :::
 
 
