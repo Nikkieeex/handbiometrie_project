@@ -158,8 +158,13 @@ A: Als je breaks te klein of te groot zijn, dan verdwijnt de normale verdeling, 
 
 ### Bronnen van variatie
 
-ONDERZOEK BRONNEN VAN VARIATIE
-BESPREEK DIT KORT
+Er kunnen meerdere bronnen zijn voor variaties bij dit onderzoek.
+
+Door natuurlijke variatie kunnen Individuen verschillen van elkaar, bijvoorbeeld in lengte, gewicht of gedrag.
+
+Meetfouten door kleine onnauwkeurigheden in apparatuur of aflezing kunnen invloed hebben op de uitkomst.
+
+Doordat dit een steekproef is, en niet een meting van de gehele populatie. zou een andere steekproef altijd verschillende uitkomsten geven.
 
 ### De hypothese aannemen?
 
