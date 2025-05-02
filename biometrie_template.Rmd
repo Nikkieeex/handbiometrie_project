@@ -54,8 +54,9 @@ Voor ons experiment hebben we van 40 willekeurig geselecteerde mensen hun handle
 
 ##### Benodigdheden:
 
-Maatlat of Meetlint 
-Een spreadsheet om de resultaten vast te leggen
+1. Maatlat of Meetlint 
+2. Een spreadsheet om de resultaten vast te leggen
+3. Je laborant-ID: een unieke _identifier_ die jou als onderzoeker identificeert. Neem hiervoor de laatste 4 cijfers van je studentnummer.
 
 ##### Data verzamelen
 
@@ -65,16 +66,11 @@ Is het antwoord ja, dan vraag je of de proefpersoon de hand horizontaal en gestr
 
 ## Uitvoering
 
-:::attention
-Je moet de onderzoeksresultaten in deze vorm opslaan:  
+We zijn met ons groepje door de school gegaan om mensen te vragen of ze mee wilden doen aan ons onderzoek. Als iemand ja zei, vroegen we hen om hun hand plat en gestrekt neer te leggen met de palm naar beneden. Daarna maten we de lengte en breedte van de hand in centimeters.
 
-<pre>
-laborant_ID,subject_ID,handlengte,handbreedte,sexe
-3241,G1_03,113,104,m
-<meer rijen met data>
-</pre>
-:::
+We schreven de gegevens op in een tabel, zonder namen, en noteerden ook of de persoon man, vrouw of anders/onbekend was. We zijn wel de laborant id's vergeten op te schrijven, dus welk lid van ons groepje wie had gemeten is nu niet meer bekend. Een ander groepje voerde dezelfde meting ook uit bij dezelfde persoon, zodat we konden vergelijken.
 
+We gingen hiermee door totdat we gegevens hadden van minstens 40 mensen. Daarna hebben we een .csv bestand gemaakt en alle verzamelde data er in gezet.
 
 ## Analyse
 
