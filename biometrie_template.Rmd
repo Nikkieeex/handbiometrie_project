@@ -47,32 +47,21 @@ Mannen en vrouwen hebben gemiddeld dezelfde handlengte en handbreedte.
 
 ### Ontwerp van het experiment
 
-> GEEF EEN KORT OVERZICHT VAN JE EXPERIMENT
-
-### Ontwerp het protocol
-
-VUL HIER ONDER HET PROTOCOL AAN OF PAS DEZE AAN NAAR JOUW OPZET.
+Voor ons experiment hebben we van 40 willekeurig geselecteerde mensen hun handlengte en handbreedte gemeten, en hun geslacht genoteerd.
 
 :::protocol
 #### Protocol voor meting handlengte en handbreedte
 
-##### Benodigdheden
+##### Benodigdheden:
 
-1. Maatlat, schuifmaat of meetlint.  
-2. Spreadsheet om resultaten vast te leggen, met toegang hiertoe op locaties zonder internet-toegang.  
-3. Je laborant-ID: een unieke _identifier_ die jou als onderzoeker identificeert. Neem hiervoor de laatste 4 cijfers van je studentnummer.
+Maatlat of Meetlint 
+Een spreadsheet om de resultaten vast te leggen
 
 ##### Data verzamelen
 
-Zoek, samen met een ander groepje van je klas, in of rond het schoolgebouw medestudenten. Vraag beleefd of ze willen participeren in een klein wetenschappelijk onderzoekje voor school waarbij de maten van de hand opgenomen zullen worden.  
-Is het antwoord nee, dan groet je vriendelijk en zoek je verder.  
-Is het antwoord ja, dan vraag je of de proefpersoon de hand horizontaal en gestrekt wil houden met de palm naar beneden. Vervolgens meet je zowel de lengte als de breedte van de hand op, in millimeters. Deze leg je vast in de spreadsheet, samen met je laborant-ID en een identifier (géén naam!) van de proefpersoon. Ten slotte vraag je aan de proefpersoon zijn/haar/hun sexe en legt deze vast. Wil de proefpersoon deze niet geven, of is die nonbinair, dan leg je dit vast als "anders/onbekend". Het "parallel groepje" (dat niet jouw bevindingen mag horen) doet dezelfde meting en slaat deze met dezelfde participant identifier op.  
-Bedank de proefpersoon voor deelname.  
-Wissel de metingen af tussen de verschillende studenten in jouw groepje.
-
-Ga door totdat van voldoende proefpersonen de gegevens zijn verzameld.
+Zoek, samen met een ander groepje van je klas, in of rond het schoolgebouw medestudenten. Vraag beleefd of ze willen participeren in een klein wetenschappelijk onderzoekje voor school waarbij de maten van de hand opgenomen zullen worden. Is het antwoord nee, dan groet je vriendelijk en zoek je verder.
+Is het antwoord ja, dan vraag je of de proefpersoon de hand horizontaal en gestrekt wil houden met de palm naar beneden. Vervolgens meet je zowel de lengte als de breedte van de hand op, in centimeters. Deze leg je anoniem vast in de spreadsheet. Ten slotte vraag je aan de proefpersoon hun sexe en legt deze vast. Wil de proefpersoon deze niet geven, of is die nonbinair, dan leg je dit vast als “anders/onbekend”. Het “parallel groepje” (dat niet jouw bevindingen mag horen) doet dezelfde meting en slaat deze op dezelfde methode op. Bedank de proefpersoon voor deelname. Ga door totdat van ten minste 40 proefpersonen de gegevens zijn verzameld.
 :::
-
 
 ## Uitvoering
 
