@@ -1,6 +1,6 @@
 ---
 title: "Biometrie onderzoek handen"
-authors: "Nicole Bovenga, Vincent de Jong, Isa Bos"
+authors: "Nicole Bovenga, Vincent de Jong(468315), Isa Bos"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -22,12 +22,7 @@ library(ggplot2)
 
 ## Inleiding
 
-Wij hebben voor dit onderzoek de lengte en breedete van de handen van verschillende mensen gemeeten, en daarna gekeken of er verschil is tussen mannen en vrouwen. Met de gegevens hebben we grafiekjes gemaakt om het verschil duidelijk te zien.
-
-:::info
-Het staat je vrij een ander simpel te meten biometrisch kenmerk te onderzoeken. Voorwaarde is wel dat je twee aspecten meet (bv lichaamslengte en hoofdomtrek) en hun relatie onderzoekt, en ook dat je verschillende groepen onderzoekt (man/vrouw, jong/oud etc.). Ten slotte moeten verschillende studenten het meetwerk afwisselen en ook dat moet vastgelegd worden.
-:::
-
+Wij hebben voor dit onderzoek de lengte en breedte van de handen van verschillende mensen gemeeten, en daarna gekeken of er verschil is tussen mannen en vrouwen. Met de gegevens hebben we grafiekjes gemaakt om het verschil duidelijk te zien.
 
 
 :::attention
@@ -76,27 +71,57 @@ We gingen hiermee door totdat we gegevens hadden van minstens 40 mensen. Daarna 
 
 ### Lees je eigen data in
 
-Om data vanuit een tekstbestand in te lezen kan je dit codeblok gebruiken, aannemend dat je data er exact zo uitzien als in bovenstaande voorbeeld:
+Hier wordt de data ingelezen:
 
 ```{r demo-data-inlees, eval=FALSE}
 data_file <- "pad/naar/jouw/databestand.csv"
 
-#data format: laborant_ID,subject_ID,handlengte,handbreedte,sexe
-biometric_data <- read.table(file = data_file,
+#data format: lengte,breedte,geslacht
+biometric_data <- read.table(file = "~/handbiometrie_project/hand_metingen.csv",
                         header = TRUE,
                         sep = ",")
-
+View(biometric_data)
 ```
-
-Let op: als je missende data hebt moet je die specificeren door dit argument toe te voegen: `na.strings = "<jouw NA symbool>"`
 
 
 ### Beschrijvende statistiek
 
-LAAT ENKELE BESCHRIJVENDE STATISTISCHE WAARDES ZIEN.
-GEEF EEN OF MEERDERE BOXPLOTS EN HISTOGRAMMEN
-BESPREEK DEZE DATA EN FIGUREN KORT.
-KAN JE IETS ZEGGEN OVER DE DATAVERDELING?
+```{r}
+biometric_data <- read.csv("hand_metingen.csv")
+
+head(biometric_data)
+
+# lengte, breedte, geslacht
+colnames(biometric_data)
+
+biometric_data$ratio <- biometric_data$lengte / biometric_data$breedte
+
+head(biometric_data)
+
+print(tapply(biometric_data$ratio, biometric_data$geslacht, mean))
+print(tapply(biometric_data$ratio, biometric_data$geslacht, sd))
+
+print(shapiro.test(biometric_data$ratio))
+
+female_ratios <- subset(biometric_data, geslacht == "V", select = ratio, drop = TRUE)
+male_ratios <- subset(biometric_data, geslacht == "M", select = ratio, drop = TRUE)
+
+print(t.test(female_ratios, male_ratios))
+
+library(ggplot2)
+ggplot(biometric_data, aes(x = geslacht, y = ratio, fill = geslacht)) +
+  geom_boxplot() +
+  labs(title = "Lengte/Breedte Ratio per Geslacht",
+       x = "Geslacht",
+       y = "Lengte / Breedte Ratio") +
+  theme_minimal()
+```
+
+De data toont een duidelijk verschil in de handmaten tussen mannen en vrouwen. De mannen hebben over het algemeen grotere handen, wat blijkt uit de boxplot en de gemiddelde lengte/breedte ratio. De spreiding bij mannen is ook groter, wat aangeeft dat de handmaten meer variëren dan bij vrouwen.
+
+De Shapiro-Wilk test geeft een p waarde van 0.2748 aan.De data is dus niet normaal verdeeld, aangezien de p-waarde veel kleiner is dan 0.05.
+
+Wat betreft de verdeling van de data lijkt de lengte/breedte ratio redelijk normaal verdeeld, alhowel er mannen een uitschieter is door een misgetypte uitschieter van 19,5 centimeter breedte. Bij vrouwen is de verdeling licht scheef, met enkele grotere waarden aan de rechterkant.
 
 ### Welke verdeling?
 
@@ -116,10 +141,19 @@ ggplot(data = hist_data,
 Beantwoord deze vragen:
 
 1. Wat gebeurt er met de vorm van de verdeling als `n` groter wordt?
+A: Als je de steekproefgrootte groter maakt, gaat de verdeling steeds meer op een normale verdeling lijken. Dit komt omdat bij grotere steekproeven de data zich meer hieraan aanpast.
+
 2. Wat gebeurt er met de spreiding van de data (x-as) als `n` groter wordt, en kan je dat verklaren?
+A: D schatting van de spreiding en hoe ver de getallen uit elkaar liggen wordt nauwkeuriger. Bij kleinere steekproeven is het moeilijker om een betrouwbare spreiding te berekenen, maar bij grotere steekproeven is die schatting beter.
+
 3. Waarom is bij zelfde instellingen voor `n` en `breaks` de uitkomst toch verschillend?
+A: Elke keer krijg je een andere set getallen, dus het histogram ziet er anders uit.
+
 4. Welke minimale `n` geeft het meeste kans om een echte normaalverdeling te zien?
+A: Iets van 100 ofzo
+
 5. Wat voor bijzonders is er aan de hand met het `breaks` argument? Geeft de documentatie daar een verklaring voor?
+A: Als je breaks te klein of te groot zijn, dan verdwijnt de normale verdeling, terwijl de data niet veranderd is.
 :::
 
 ### Bronnen van variatie
