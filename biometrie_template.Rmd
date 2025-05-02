@@ -1,6 +1,6 @@
 ---
 title: "Biometrie onderzoek handen"
-authors: "Nicole Bovenga, Vincent de Jong(468315), Isa Bos"
+authors: "Nicole Bovenga(425787), Vincent de Jong(468315), Isa Bos"
 date: "`r Sys.Date()`"
 output:
   html_document:
