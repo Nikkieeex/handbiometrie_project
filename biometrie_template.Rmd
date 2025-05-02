@@ -166,6 +166,10 @@ Meetfouten door kleine onnauwkeurigheden in apparatuur of aflezing kunnen invloe
 
 Doordat dit een steekproef is, en niet een meting van de gehele populatie. zou een andere steekproef altijd verschillende uitkomsten geven.
 
+Gemiddeld hadden vrouwen een iets hogere ratio dan mannen: 1,84 tegenover 1,79. De spreiding was bij mannen groter dan bij vrouwen. Dit zagen we ook terug in de boxplots, waar de data van vrouwen compacter lagen dan die van mannen.
+
+In de histogrammen was te zien dat de meeste waarden zich rond het gemiddelde verzamelden, maar dat er bij mannen een aantal uitschieters naar beneden waren. Dit zorgde ervoor dat de verdeling van de ratio’s afweek van een normale verdeling, wat ook bevestigd werd door de Shapiro-Wilk-test. De data zijn dus niet normaal verdeeld, vooral door de spreiding en enkele lage waarden bij mannen.
+
 ### De hypothese aannemen?
 
 VOER RELEVANTE STATISTISCHE TESTS UIT
@@ -178,9 +182,17 @@ Bespreek in je groep de volgende vragen en voeg de antwoorden toe aan je uitgewe
 
 1. Zijn de metingen tussen de verschillende meters ook (significant) verschillend? Zo ja, waardoor zou je de verschillen kunnen verklaren?
 
+Ja ze zijn verschillend. Dit komt doordat het andere groepje tot op millimeter meet en wij iets minder exact.
+
 2. Onderzoek de verschillen tussen mannen en vrouwen met betrekking tot hand lengte, handbreedte en de ratio.
 
+Op basis van onze metingen blijkt dat mannen gemiddeld een iets lagere lengte-breedteverhouding hebben dan vrouwen. De gemiddelde ratio voor mannen was ongeveer 1,79 voor vrouwen 1,84. Dit verschil was niet statistisch significant volgens de t-toets (p = 0,2748). De spreiding bij mannen was wel duidelijk groter dan bij vrouwen, wat zichtbaar was in de standaardafwijkingen (mannen ≈ 0,20, vrouwen ≈ 0,08).
+
+Hoewel we in deze analyse vooral naar de verhouding gekeken hebben, zagen we bij het doornemen van de ruwe data ook dat mannen gemiddeld iets langere handen hadden, terwijl de handbreedte bij beide groepen redelijk vergelijkbaar leek.
+
 3. Zou je het protocol aanpassen na deze ervaring, of was hij voldoende duidelijk en reproduceerbaar?
+
+Hij was best duidelijk, maar misschien een verandering toevoegen dat er heel exact op milimeters gemeten moet worden.
 :::
 
 
