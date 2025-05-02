@@ -1,6 +1,10 @@
 ---
 title: "Biometrie onderzoek handen"
+<<<<<<< HEAD
 authors: "Nicole Bovenga (425787), Vincent de Jong, Isa Bos"
+=======
+authors: "Nicole Bovenga(425787), Vincent de Jong(468315), Isa Bos"
+>>>>>>> 70eab193b054b0d7c34368a718ee384683fe0362
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -22,12 +26,16 @@ library(ggplot2)
 
 ## Inleiding
 
+<<<<<<< HEAD
 Wij hebben voor dit onderzoek de lengte en breedte van de handen van verschillende mensen gemeten, en daarna gekeken of er verschil is tussen mannen en vrouwen. Met de gegevens hebben we grafiekjes gemaakt om het verschil duidelijk te zien.
 
 :::info
 Het staat je vrij een ander simpel te meten biometrisch kenmerk te onderzoeken. Voorwaarde is wel dat je twee aspecten meet (bv lichaamslengte en hoofdomtrek) en hun relatie onderzoekt, en ook dat je verschillende groepen onderzoekt (man/vrouw, jong/oud etc.). Ten slotte moeten verschillende studenten het meetwerk afwisselen en ook dat moet vastgelegd worden.
 :::
 
+=======
+Wij hebben voor dit onderzoek de lengte en breedte van de handen van verschillende mensen gemeeten, en daarna gekeken of er verschil is tussen mannen en vrouwen. Met de gegevens hebben we grafiekjes gemaakt om het verschil duidelijk te zien.
+>>>>>>> 70eab193b054b0d7c34368a718ee384683fe0362
 
 
 :::attention
@@ -82,29 +90,62 @@ We gingen hiermee door totdat we gegevens hadden van minstens 40 mensen. Daarna 
 De boxplot laat zien hoe de verhouding tussen handlengte en handbreedte verschilt tussen mannen en vrouwen. De gemiddelde ratio lijkt bij beide groepen ongeveer gelijk. Vrouwen hebben iets minder spreiding in de data dan mannen, maar het verschil is klein. Er zijn bij beide groepen een paar uitschieters te zien.
 We hebben een t-toets uitgevoerd om te controleren of het verschil in gemiddelde ratio tussen mannen en vrouwen statistisch significant is. De uitkomst van de toets gaf een p-waarde boven de 0,05. Dat betekent dat het gevonden verschil waarschijnlijk op toeval berust. We kunnen dus niet zeggen dat er een echt verschil is in de lengte-breedteverhouding van handen tussen mannen en vrouwen op basis van deze steekproef.
 
+De boxplot laat zien hoe de verhouding tussen handlengte en handbreedte verschilt tussen mannen en vrouwen. De gemiddelde ratio lijkt bij beide groepen ongeveer gelijk. Vrouwen hebben iets minder spreiding in de data dan mannen, maar het verschil is klein. Er zijn bij beide groepen een paar uitschieters te zien.
+We hebben een t-toets uitgevoerd om te controleren of het verschil in gemiddelde ratio tussen mannen en vrouwen statistisch significant is. De uitkomst van de toets gaf een p-waarde boven de 0,05. Dat betekent dat het gevonden verschil waarschijnlijk op toeval berust. We kunnen dus niet zeggen dat er een echt verschil is in de lengte-breedteverhouding van handen tussen mannen en vrouwen op basis van deze steekproef.
+
 ### Lees je eigen data in
 
-Om data vanuit een tekstbestand in te lezen kan je dit codeblok gebruiken, aannemend dat je data er exact zo uitzien als in bovenstaande voorbeeld:
+Hier wordt de data ingelezen:
 
 ```{r demo-data-inlees, eval=FALSE}
 data_file <- "pad/naar/jouw/databestand.csv"
 
-#data format: laborant_ID,subject_ID,handlengte,handbreedte,sexe
-biometric_data <- read.table(file = data_file,
+#data format: lengte,breedte,geslacht
+biometric_data <- read.table(file = "~/handbiometrie_project/hand_metingen.csv",
                         header = TRUE,
                         sep = ",")
-
+View(biometric_data)
 ```
-
-Let op: als je missende data hebt moet je die specificeren door dit argument toe te voegen: `na.strings = "<jouw NA symbool>"`
 
 
 ### Beschrijvende statistiek
 
-LAAT ENKELE BESCHRIJVENDE STATISTISCHE WAARDES ZIEN.
-GEEF EEN OF MEERDERE BOXPLOTS EN HISTOGRAMMEN
-BESPREEK DEZE DATA EN FIGUREN KORT.
-KAN JE IETS ZEGGEN OVER DE DATAVERDELING?
+```{r}
+biometric_data <- read.csv("hand_metingen.csv")
+
+head(biometric_data)
+
+# lengte, breedte, geslacht
+colnames(biometric_data)
+
+biometric_data$ratio <- biometric_data$lengte / biometric_data$breedte
+
+head(biometric_data)
+
+print(tapply(biometric_data$ratio, biometric_data$geslacht, mean))
+print(tapply(biometric_data$ratio, biometric_data$geslacht, sd))
+
+print(shapiro.test(biometric_data$ratio))
+
+female_ratios <- subset(biometric_data, geslacht == "V", select = ratio, drop = TRUE)
+male_ratios <- subset(biometric_data, geslacht == "M", select = ratio, drop = TRUE)
+
+print(t.test(female_ratios, male_ratios))
+
+library(ggplot2)
+ggplot(biometric_data, aes(x = geslacht, y = ratio, fill = geslacht)) +
+  geom_boxplot() +
+  labs(title = "Lengte/Breedte Ratio per Geslacht",
+       x = "Geslacht",
+       y = "Lengte / Breedte Ratio") +
+  theme_minimal()
+```
+
+De data toont een duidelijk verschil in de handmaten tussen mannen en vrouwen. De mannen hebben over het algemeen grotere handen, wat blijkt uit de boxplot en de gemiddelde lengte/breedte ratio. De spreiding bij mannen is ook groter, wat aangeeft dat de handmaten meer variëren dan bij vrouwen.
+
+De Shapiro-Wilk test geeft een p waarde van 0.2748 aan.De data is dus niet normaal verdeeld, aangezien de p-waarde veel kleiner is dan 0.05.
+
+Wat betreft de verdeling van de data lijkt de lengte/breedte ratio redelijk normaal verdeeld, alhowel er mannen een uitschieter is door een misgetypte uitschieter van 19,5 centimeter breedte. Bij vrouwen is de verdeling licht scheef, met enkele grotere waarden aan de rechterkant.
 
 
 ### Welke verdeling?
@@ -125,21 +166,34 @@ ggplot(data = hist_data,
 Beantwoord deze vragen:
 
 1. Wat gebeurt er met de vorm van de verdeling als `n` groter wordt?
+A: Als je de steekproefgrootte groter maakt, gaat de verdeling steeds meer op een normale verdeling lijken. Dit komt omdat bij grotere steekproeven de data zich meer hieraan aanpast.
+
 2. Wat gebeurt er met de spreiding van de data (x-as) als `n` groter wordt, en kan je dat verklaren?
+A: D schatting van de spreiding en hoe ver de getallen uit elkaar liggen wordt nauwkeuriger. Bij kleinere steekproeven is het moeilijker om een betrouwbare spreiding te berekenen, maar bij grotere steekproeven is die schatting beter.
+
 3. Waarom is bij zelfde instellingen voor `n` en `breaks` de uitkomst toch verschillend?
+A: Elke keer krijg je een andere set getallen, dus het histogram ziet er anders uit.
+
 4. Welke minimale `n` geeft het meeste kans om een echte normaalverdeling te zien?
+A: Iets van 100 ofzo
+
 5. Wat voor bijzonders is er aan de hand met het `breaks` argument? Geeft de documentatie daar een verklaring voor?
+A: Als je breaks te klein of te groot zijn, dan verdwijnt de normale verdeling, terwijl de data niet veranderd is.
 :::
 
 ### Bronnen van variatie
 
-ONDERZOEK BRONNEN VAN VARIATIE
-BESPREEK DIT KORT
+Er kunnen meerdere bronnen zijn voor variaties bij dit onderzoek.
 
-### De hypothese aannemen?
+Door natuurlijke variatie kunnen Individuen verschillen van elkaar, bijvoorbeeld in lengte, gewicht of gedrag.
 
-VOER RELEVANTE STATISTISCHE TESTS UIT
+Meetfouten door kleine onnauwkeurigheden in apparatuur of aflezing kunnen invloed hebben op de uitkomst.
 
+Doordat dit een steekproef is, en niet een meting van de gehele populatie. zou een andere steekproef altijd verschillende uitkomsten geven.
+
+Gemiddeld hadden vrouwen een iets hogere ratio dan mannen: 1,84 tegenover 1,79. De spreiding was bij mannen groter dan bij vrouwen. Dit zagen we ook terug in de boxplots, waar de data van vrouwen compacter lagen dan die van mannen.
+
+In de histogrammen was te zien dat de meeste waarden zich rond het gemiddelde verzamelden, maar dat er bij mannen een aantal uitschieters naar beneden waren. Dit zorgde ervoor dat de verdeling van de ratio’s afweek van een normale verdeling, wat ook bevestigd werd door de Shapiro-Wilk-test. De data zijn dus niet normaal verdeeld, vooral door de spreiding en enkele lage waarden bij mannen.
 
 ## Reflectie op het experiment
 
@@ -157,13 +211,12 @@ Op basis van onze metingen blijkt dat mannen gemiddeld een iets lagere lengte-br
 Hoewel we in deze analyse vooral naar de verhouding gekeken hebben, zagen we bij het doornemen van de ruwe data ook dat mannen gemiddeld iets langere handen hadden, terwijl de handbreedte bij beide groepen redelijk vergelijkbaar leek.
 
 3. Zou je het protocol aanpassen na deze ervaring, of was hij voldoende duidelijk en reproduceerbaar?
+<<<<<<< HEAD
 
 Hij was best duidelijk, maar misschien een verandering toevoegen dat er heel exact op milimeters gemeten moet worden.
 :::
+=======
+>>>>>>> 70eab193b054b0d7c34368a718ee384683fe0362
 
-
-:::attention
-#### Wat je moet inleveren
-Voor de verwerking en analyse van je eigen data maak je gebruik van het aangeleverde template RMarkdown document. Daarin doorloop je dezelfde onderzoek stappen als hieronder, maar dan met je eigen data. Aan het einde van de dag gaat dat document, in originele en "geknitte" vorm, samen met je databestand, in een git repo die is opgezet volgens voorschift in de cursushandleiding. De link hiernaar toe gaat in je portfolio op eJournal. Let op dat je _alle_ stappen hebt doorlopen voordat je inlevert. Gebruik ook de RStudio spellingscontrole!  
-Vergeet niet jullie namen en studentnummers bovenaan de markdown te zetten!
+Hij was best duidelijk, maar misschien een verandering toevoegen dat er heel exact op milimeters gemeten moet worden.
 :::
