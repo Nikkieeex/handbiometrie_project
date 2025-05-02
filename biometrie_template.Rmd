@@ -173,11 +173,6 @@ Gemiddeld hadden vrouwen een iets hogere ratio dan mannen: 1,84 tegenover 1,79. 
 
 In de histogrammen was te zien dat de meeste waarden zich rond het gemiddelde verzamelden, maar dat er bij mannen een aantal uitschieters naar beneden waren. Dit zorgde ervoor dat de verdeling van de ratio’s afweek van een normale verdeling, wat ook bevestigd werd door de Shapiro-Wilk-test. De data zijn dus niet normaal verdeeld, vooral door de spreiding en enkele lage waarden bij mannen.
 
-### De hypothese aannemen?
-
-VOER RELEVANTE STATISTISCHE TESTS UIT
-
-
 ## Reflectie op het experiment
 
 :::info
@@ -196,11 +191,4 @@ Hoewel we in deze analyse vooral naar de verhouding gekeken hebben, zagen we bij
 3. Zou je het protocol aanpassen na deze ervaring, of was hij voldoende duidelijk en reproduceerbaar?
 
 Hij was best duidelijk, maar misschien een verandering toevoegen dat er heel exact op milimeters gemeten moet worden.
-:::
-
-
-:::attention
-#### Wat je moet inleveren
-Voor de verwerking en analyse van je eigen data maak je gebruik van het aangeleverde template RMarkdown document. Daarin doorloop je dezelfde onderzoek stappen als hieronder, maar dan met je eigen data. Aan het einde van de dag gaat dat document, in originele en "geknitte" vorm, samen met je databestand, in een git repo die is opgezet volgens voorschift in de cursushandleiding. De link hiernaar toe gaat in je portfolio op eJournal. Let op dat je _alle_ stappen hebt doorlopen voordat je inlevert. Gebruik ook de RStudio spellingscontrole!  
-Vergeet niet jullie namen en studentnummers bovenaan de markdown te zetten!
 :::
